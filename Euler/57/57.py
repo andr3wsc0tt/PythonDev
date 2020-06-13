@@ -19,15 +19,15 @@ old_dem = 2
 
 
 def new_frac(old_num, old_dem):
-    new_num = old_dem
-    new_dem = 2 * old_dem + old_num
+    new_num = old_dem  # the new numerator becomes the old denominator in each iteration
+    new_dem = 2 * old_dem + old_num  # the new denominator is
 
     return (new_num, new_dem)
 
 
-count = 0
-it = 0
-while (it <= 1000):
+count = 0  # number of times length of numerator > length of denominator
+it = 0  # 1000 iterations
+while (it < 1000):
     if (len(str(old_num + old_dem)) > len(str(old_dem))):
         count += 1
     (old_num, old_dem) = new_frac(old_num, old_dem)
