@@ -341,3 +341,94 @@ print(id(c))  # 179468742888
 # input(prompt) : read line from input - prompt argument is added to stdout
 # s = input()  # stdin
 # s = input('===>')  # ===> stdin
+
+# isinstance(object, classinfo) : returns True if the object is an instance of the classinfo argument
+b = c()
+print(isinstance(b, c))  # True
+print(isinstance(b, int))  # False
+print(isinstance(5, int))  # True
+
+# issubclass(class, classinfo) : returns True if d is a subclass of classinfo
+
+
+class d(c):
+    def __init__(self):
+        c.attr1
+
+
+print(issubclass(d, c))  # True
+print(issubclass(d, int))  # False
+
+# iter(object[,sentinel]) :  Returns an iterator object
+
+listA = ['a', 'e', 'i', 'o', 'u']
+iter_listA = iter(listA)
+
+print(next(iter_listA))  # a
+print(next(iter_listA))  # e
+print(next(iter_listA))  # i
+
+
+class Counter:
+    def __init__(self, start, end):
+        self.num = start
+        self.end = end
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.num > self.end:
+            raise StopIteration
+        else:
+            self.num += 1
+            return self.num - 1
+
+
+a, b = 2, 5
+
+c1 = Counter(a, b)
+c2 = Counter(a, b)
+
+for i in c1:  # 2 3 4 5
+    print(i)
+
+obj = iter(c2)
+try:
+    while True:  # 2 3 4 5
+        print(next(obj))
+except:
+    print("done")  # done
+
+# len(s) : return the length (number of items) of an object
+
+print(len(dict(one='1', three='3', five='5')))  # 3
+print(len(dir()))  # 52
+
+# list([iterable]) : not a function but a mutable sequence type.
+
+x = list(('apple', 'banana', 'cherry'))
+print(x)  # ['apple', 'banana', 'cherry']
+
+# locals() : return a dictionary of the current local symbol table
+
+print(locals()) #{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <_frozen_importlib_external.SourceFileLoader object at 0x000000A5851E9C88>, 
+#'__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, '__file__': 'BuiltIns.py', '__cached__': None, 'math': <module 'math' (built-in)>, 
+# 'x': ['apple', 'banana', 'cherry'], 'y': 3, 'w': 1, 'z': 'me', 'a': 2, 'b': 5, 'str': 'GeeksforGeeks', 'c': <class '__main__.c'>, 'd': <class '__main__.d'>, 'array1': bytearray(b'GeeksforGeeks'), 
+# 'array2': bytearray(b'\xff\xfeG\x00e\x00e\x00k\x00s\x00f\x00o\x00r\x00G\x00e\x00e\x00k\x00s\x00'), 'size': bytearray(b'\x00\x00\x00'), 'array3': bytearray(b'abcd'), 'array4': bytearray(b'aaaacccc'), 
+# 'list1': bytearray(b'\x00\x03\x05\x06'), 'val': 0, 'byte1': b'GeeksforGeeks', 'byte2': b'\xff\xfeG\x00e\x00e\x00k\x00s\x00f\x00o\x00r\x00G\x00e\x00e\x00k\x00s\x00', 'callMe': <class '__main__.callMe'>, 
+# 'source': "\nj = 5\nfor i in range(j):\n    print(i, end=',' )\nprint()", 'sourceCode': <code object <module> at 0x000000A585328420, file "anystring", line 2>, 'j': 5, 'i': 5, 'z1': (2-3j), 'z2': (1+0j), 
+# 'z3': 0j, 'z4': (5-9j), 'z5': (7-12j), 'res1': (2, 0), 'res2': (1, 2), 'letters': ['a', 'b', 'c', 'd'], 'index': 2, 'value': 6, 'expression': '\nfor i in range(5):\n    print(i)\nprint(x)\nx = 3\nprint(x)', 
+# 'pi': 3.14, 'frozen': frozenset({1, 2, 4, 5, 9}), 'listA': ['a', 'e', 'i', 'o', 'u'], 'iter_listA': <list_iterator object at 0x000000A58533FC08>, 'Counter': <class '__main__.Counter'>, 
+#'c1': <__main__.Counter object at 0x000000A58533FC48>, 'c2': <__main__.Counter object at 0x000000A58533FCC8>, 'obj': <__main__.Counter object at 0x000000A58533FCC8>}
+
+# map(function, iterable1, iterable2, ..) : returns an iterator the applies 'function' to every item of iterable. If addition iterables are pass function must take that many arguments. (shortest iterable stops the mapping)
+
+numbers1 = (1, 2, 3, 4)
+result1 = map(lambda x: x*2, numbers1)
+print(list(result1)) # 2, 4, 6, 8
+
+numbers2 = (3, 6, 7, 8)
+result2 = map(lambda x, y: x+y, numbers1, numbers2)
+print(list(result2)) # 4, 8, 10, 12
+
