@@ -435,10 +435,18 @@ print(list(result2))  # 4, 8, 10, 12
 
 # Filter Exec Format Lambda
 
+def create_weird_hash(i, j):
+    return (i, j)
+
 
 def get_test_values():
     artful = 10
     dI = "not real"
+
+    full_range = [[create_weird_hash(i,j) for i in range(25)] for j in range(25)]
+
+    print(full_range)
+
     return [artful, 3, dI, 34, 3.00, c, "see ya!"]
 
 
@@ -446,14 +454,14 @@ def use_me():
 
     test_values = get_test_values()
 
-    x = get_test_values()
+    #ret_val = get_test_values()
 
     # Use lambda to return hash and check for odd/even/prime/perfect numbers.
     # Filter find sum of hash, of individual strings that == True ( have hash values that are (odd: even: prime: perfect))
     # If a string is a command, execute it. Else, throw error.
     # Print out the result of the command (if exists) in the center of a circle with radius returned from commmand: command will always return a (int: float: double)
 
-    print(x)
+    print(test_values)
 
 
 use_me()
