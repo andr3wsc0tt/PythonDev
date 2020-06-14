@@ -17,9 +17,6 @@ def create_weird_hash():
 def get_test_values():
     complexity = 5
 
-    artful = 10
-    dI = "not real"
-
     Range1 = randint(0, complexity)
 
     huge_range = [create_weird_hash() for i in range(Range1)]
@@ -50,14 +47,17 @@ def use_me():
     # While Time Remaining...
     test_values = get_test_values()
 
-    simple_filtered = [i for i in list(map(hash_me, test_values))]
-
-    # for i in list(filter(hash, test_values)):
-    # print(i)
-
     # Use lambda to return hash and check for odd/even/prime/perfect numbers.
     # Filter find sum of hash, of individual strings that == True ( have hash values that are (odd: even: prime: perfect))
-    # If a string is a command, execute it. Else, throw error.
+
+    # map hash -> then filter odd -> add to simple filtered
+
+    simple_filtered = [i for i in list(
+        filter(lambda x: x % 2 != 0, list(
+            map(hash_me, test_values))))]
+
+    radius = sum(simple_filtered) % 100
+    print(radius)
 
     # the int value modded between (0-100) that are (odd : even: prime: perfect)
     # Print out the result of the command (if exists) in the center of a circle with radius returned from commmand: command will always return a (int: float: double)
