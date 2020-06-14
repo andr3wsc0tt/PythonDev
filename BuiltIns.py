@@ -442,7 +442,8 @@ def create_weird_hash(i, j):
 
     selected_command = commands[randint(0, 5)]
 
-    exec("print(selected_command(7))")
+    b = selected_command(randint(0,99999))
+    print(b)
 
     return (i, j)
 
