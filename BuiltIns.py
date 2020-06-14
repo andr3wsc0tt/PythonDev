@@ -1,5 +1,4 @@
 # abs() : absolute value
-
 import math
 x = -5
 y = -0.005
@@ -32,8 +31,8 @@ print(any(b))  # True
 
 # ascii() : return string containing printable representation of an object
 
-str = "G ë ê k s f ? r G ? e k s"
-print(ascii(str))  # 'G \xeb \xea k s f ? r G ? e k s'
+str5 = "G ë ê k s f ? r G ? e k s"
+print(ascii(str5))  # 'G \xeb \xea k s f ? r G ? e k s'
 
 # bin(): convert an int to binary string prefixed with "0b".
 
@@ -69,10 +68,10 @@ print(bool(d))
 
 # bytearray(source, encoding, errors) : returns a byte array
 
-str = "GeeksforGeeks"
-array1 = bytearray(str, 'utf-8')  # bytearray(b'GeeksforGeeks')
+str5 = "GeeksforGeeks"
+array1 = bytearray(str5, 'utf-8')  # bytearray(b'GeeksforGeeks')
 # bytearray(b'\xff\xfeG\x00e\x00e\x00k\x00s\x00f\x00o\x00r\x00G\x00e\x00e\x00k\x00s\x00')
-array2 = bytearray(str, 'utf-16')
+array2 = bytearray(str5, 'utf-16')
 size = bytearray(3)  # bytearray(b'\x00\x00\x00')
 array3 = bytearray(b"abcd")  # bytearray(b'abcd')
 array4 = bytearray(b'aaaacccc')  # bytearray(b'aaaacccc')
@@ -91,8 +90,8 @@ print(list1)
 
 # bytes(source, encoding, errors) : returns an immutable byte object
 
-byte1 = bytes(str, 'utf-8')
-byte2 = bytes(str, 'utf-16')
+byte1 = bytes(str5, 'utf-8')
+byte2 = bytes(str5, 'utf-16')
 
 print(byte1)
 print(byte2)
@@ -435,7 +434,16 @@ print(list(result2))  # 4, 8, 10, 12
 
 # Filter Exec Format Lambda
 
+from random import randint, seed 
 def create_weird_hash(i, j):
+
+    commands = [str, int, float, math.sqrt, hash, bin]
+    seed(i * math.pi * j)
+
+    selected_command = commands[randint(0, 5)]
+
+    exec("print(selected_command(7))")
+
     return (i, j)
 
 
@@ -443,15 +451,23 @@ def get_test_values():
     artful = 10
     dI = "not real"
 
-    full_range = [[create_weird_hash(i,j) for i in range(25)] for j in range(25)]
+    Range1 = randint(0, 50)
+    Range2 = randint(0, 50)
 
-    print(full_range)
+    huge_range = [[create_weird_hash(i,j) for i in range(Range1)] for j in range(Range2)]
 
     return [artful, 3, dI, 34, 3.00, c, "see ya!"]
 
 
+
+# create list of transformation commands (str, int, float, sqrt, hash, bin, 64, etc...)
+# choose a number randomly and select that command
+# execute that command on a randomly selected range [0 - 500000, a - a73mdd&3hg 038d_jL*HDK8]
+
 def use_me():
 
+
+        #While Time Remaining...
     test_values = get_test_values()
 
     #ret_val = get_test_values()
@@ -459,6 +475,8 @@ def use_me():
     # Use lambda to return hash and check for odd/even/prime/perfect numbers.
     # Filter find sum of hash, of individual strings that == True ( have hash values that are (odd: even: prime: perfect))
     # If a string is a command, execute it. Else, throw error.
+    
+    # the int value modded between (0-100) that are (odd : even: prime: perfect)
     # Print out the result of the command (if exists) in the center of a circle with radius returned from commmand: command will always return a (int: float: double)
 
     print(test_values)
