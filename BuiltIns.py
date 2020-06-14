@@ -412,23 +412,48 @@ print(x)  # ['apple', 'banana', 'cherry']
 
 # locals() : return a dictionary of the current local symbol table
 
-print(locals()) #{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <_frozen_importlib_external.SourceFileLoader object at 0x000000A5851E9C88>, 
-#'__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, '__file__': 'BuiltIns.py', '__cached__': None, 'math': <module 'math' (built-in)>, 
-# 'x': ['apple', 'banana', 'cherry'], 'y': 3, 'w': 1, 'z': 'me', 'a': 2, 'b': 5, 'str': 'GeeksforGeeks', 'c': <class '__main__.c'>, 'd': <class '__main__.d'>, 'array1': bytearray(b'GeeksforGeeks'), 
-# 'array2': bytearray(b'\xff\xfeG\x00e\x00e\x00k\x00s\x00f\x00o\x00r\x00G\x00e\x00e\x00k\x00s\x00'), 'size': bytearray(b'\x00\x00\x00'), 'array3': bytearray(b'abcd'), 'array4': bytearray(b'aaaacccc'), 
-# 'list1': bytearray(b'\x00\x03\x05\x06'), 'val': 0, 'byte1': b'GeeksforGeeks', 'byte2': b'\xff\xfeG\x00e\x00e\x00k\x00s\x00f\x00o\x00r\x00G\x00e\x00e\x00k\x00s\x00', 'callMe': <class '__main__.callMe'>, 
-# 'source': "\nj = 5\nfor i in range(j):\n    print(i, end=',' )\nprint()", 'sourceCode': <code object <module> at 0x000000A585328420, file "anystring", line 2>, 'j': 5, 'i': 5, 'z1': (2-3j), 'z2': (1+0j), 
-# 'z3': 0j, 'z4': (5-9j), 'z5': (7-12j), 'res1': (2, 0), 'res2': (1, 2), 'letters': ['a', 'b', 'c', 'd'], 'index': 2, 'value': 6, 'expression': '\nfor i in range(5):\n    print(i)\nprint(x)\nx = 3\nprint(x)', 
-# 'pi': 3.14, 'frozen': frozenset({1, 2, 4, 5, 9}), 'listA': ['a', 'e', 'i', 'o', 'u'], 'iter_listA': <list_iterator object at 0x000000A58533FC08>, 'Counter': <class '__main__.Counter'>, 
-#'c1': <__main__.Counter object at 0x000000A58533FC48>, 'c2': <__main__.Counter object at 0x000000A58533FCC8>, 'obj': <__main__.Counter object at 0x000000A58533FCC8>}
+# {'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <_frozen_importlib_external.SourceFileLoader object at 0x000000A5851E9C88>,
+print(locals())
+# '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, '__file__': 'BuiltIns.py', '__cached__': None, 'math': <module 'math' (built-in)>,
+# 'x': ['apple', 'banana', 'cherry'], 'y': 3, 'w': 1, 'z': 'me', 'a': 2, 'b': 5, 'str': 'GeeksforGeeks', 'c': <class '__main__.c'>, 'd': <class '__main__.d'>, 'array1': bytearray(b'GeeksforGeeks'),
+# 'array2': bytearray(b'\xff\xfeG\x00e\x00e\x00k\x00s\x00f\x00o\x00r\x00G\x00e\x00e\x00k\x00s\x00'), 'size': bytearray(b'\x00\x00\x00'), 'array3': bytearray(b'abcd'), 'array4': bytearray(b'aaaacccc'),
+# 'list1': bytearray(b'\x00\x03\x05\x06'), 'val': 0, 'byte1': b'GeeksforGeeks', 'byte2': b'\xff\xfeG\x00e\x00e\x00k\x00s\x00f\x00o\x00r\x00G\x00e\x00e\x00k\x00s\x00', 'callMe': <class '__main__.callMe'>,
+# 'source': "\nj = 5\nfor i in range(j):\n    print(i, end=',' )\nprint()", 'sourceCode': <code object <module> at 0x000000A585328420, file "anystring", line 2>, 'j': 5, 'i': 5, 'z1': (2-3j), 'z2': (1+0j),
+# 'z3': 0j, 'z4': (5-9j), 'z5': (7-12j), 'res1': (2, 0), 'res2': (1, 2), 'letters': ['a', 'b', 'c', 'd'], 'index': 2, 'value': 6, 'expression': '\nfor i in range(5):\n    print(i)\nprint(x)\nx = 3\nprint(x)',
+# 'pi': 3.14, 'frozen': frozenset({1, 2, 4, 5, 9}), 'listA': ['a', 'e', 'i', 'o', 'u'], 'iter_listA': <list_iterator object at 0x000000A58533FC08>, 'Counter': <class '__main__.Counter'>,
+# 'c1': <__main__.Counter object at 0x000000A58533FC48>, 'c2': <__main__.Counter object at 0x000000A58533FCC8>, 'obj': <__main__.Counter object at 0x000000A58533FCC8>}
 
 # map(function, iterable1, iterable2, ..) : returns an iterator the applies 'function' to every item of iterable. If addition iterables are pass function must take that many arguments. (shortest iterable stops the mapping)
 
 numbers1 = (1, 2, 3, 4)
 result1 = map(lambda x: x*2, numbers1)
-print(list(result1)) # 2, 4, 6, 8
+print(list(result1))  # 2, 4, 6, 8
 
 numbers2 = (3, 6, 7, 8)
 result2 = map(lambda x, y: x+y, numbers1, numbers2)
-print(list(result2)) # 4, 8, 10, 12
+print(list(result2))  # 4, 8, 10, 12
 
+# Filter Exec Format Lambda
+
+
+def get_test_values():
+    artful = 10
+    dI = "not real"
+    return [artful, 3, dI, 34, 3.00, c, "see ya!"]
+
+
+def use_me():
+
+    test_values = get_test_values()
+
+    x = get_test_values()
+
+    # Use lambda to return hash and check for odd/even/prime/perfect numbers.
+    # Filter find sum of hash, of individual strings that == True ( have hash values that are (odd: even: prime: perfect))
+    # If a string is a command, execute it. Else, throw error.
+    # Print out the result of the command (if exists) in the center of a circle with radius returned from commmand: command will always return a (int: float: double)
+
+    print(x)
+
+
+use_me()
