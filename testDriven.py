@@ -56,13 +56,25 @@ def use_me():
         filter(lambda x: x % 2 != 0, list(
             map(hash_me, test_values))))]
 
-    radius = sum(simple_filtered) % 100
-    print(radius)
-
     # the int value modded between (0-100) that are (odd : even: prime: perfect)
+    radius = sum(simple_filtered) % 100
+
     # Print out the result of the command (if exists) in the center of a circle with radius returned from commmand: command will always return a (int: float: double)
 
-    print(simple_filtered)
+    print(radius)
+
+    print(f'{"*": ^{radius}}')
+    for i in range(radius//2 - 2):
+        print(
+            f'{"*" : >{(radius//2 - 1) - i}}{"*": >{2*i+2}}'
+        )
+    print(f'{"*"}{radius : ^{radius - 3}}{"*"}')
+
+    for i in range(radius//2 - 2, 0, -1):
+        print(
+            f'{"*" : >{(radius//2 - 1) - i}}{"*": >{2*i+2}}'
+        )
+    print(f'{"*": ^{radius}}')
 
 
 use_me()
