@@ -432,3 +432,54 @@ numbers2 = (3, 6, 7, 8)
 result2 = map(lambda x, y: x+y, numbers1, numbers2)
 print(list(result2)) # 4, 8, 10, 12
 
+# max(): returns the largest of an iterable or of two or more arguments
+
+print(max(5, 3, 2)) # 5
+print(max([4,5,6], [4, 4, 5])) # [4,5,6]
+
+print(max([4, 5, 7, 19], [4, 4, 111, 222, 333])) # [4,5,7,19]
+print(max([4, 5, 7, 19], [4, 4, 111, 222, 333], key=lambda x: x[3])) # [4, 4, 111, 222, 333]
+
+print(max([555, 444],[1,2,3,4,5], key=len)) # [1,2,3,4,5]
+print(max([555, 444],[1,2,3,4,5], key=sum)) # [555,444]
+
+# memoryview(obj) : creates a memoryview object that exposes the internal data of an object that implements buffer protocol
+# Buffer protocol can create another object to modify the large data without copying it.
+
+
+byte_array = bytearray("ABC", 'utf-8')
+print(byte_array)
+
+mem_view = memoryview(byte_array)
+mem_view[2] = 74
+
+print(byte_array)
+
+# min() : returns the smallest of an iterable or of two or more arguments
+
+print(min(5, 3, 2)) # 2
+print(min([4,5,6], [4, 4, 5])) # [4,4,5]
+
+print(min([4, 5, 7, 19], [4, 4, 111, 222, 333])) # [4, 4, 111, 222, 333]
+print(min([4, 5, 7, 19], [4, 4, 111, 222, 333], key=lambda x: x[3])) # [4, 5, 7, 19]
+
+print(min([555, 444],[1,2,3,4,5], key=len)) # [555, 444]
+print(min([555, 444],[1,2,3,4,5], key=sum)) # [1, 2, 3, 4, 5]
+
+# next(iterator, stopdef) : retrieve the next item from the iterator by calling it's __next__ method. stopdef is the default value to be return if we reach the end of the iterator
+
+list1 = iter([1, 2, 3, 4, 5])
+
+print(next(list1)) # 1
+print(next(list1)) # 2
+print(next(list1)) # 3
+print(next(list1)) # 4
+print(next(list1)) # 5
+print(next(list1, 'end')) # end
+
+# object() : returns a featureless object.
+
+obj = object()
+print(dir(obj)) # ['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', 
+#'__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', 
+# '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__']
